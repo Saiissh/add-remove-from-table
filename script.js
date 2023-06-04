@@ -1,7 +1,9 @@
 
 var data=[];
 var boolean=true;
-document.getElementById("add").addEventListener("click",() =>{
+document.getElementById("add").addEventListener("click",displayarr);
+
+function displayarr(){
 
     document.getElementById("add").style.display="block";
     document.getElementById("edit").style.display="none";
@@ -27,7 +29,7 @@ document.getElementById("add").addEventListener("click",() =>{
        
 
 
-})
+}
 
 document.getElementById("edit").addEventListener("click",() =>{
 
@@ -53,7 +55,7 @@ document.getElementById("edit").addEventListener("click",() =>{
     document.getElementById("profession").value="";
 
        
-
+    
 
 })
 
@@ -101,7 +103,7 @@ function print(data) {
 
     }
 
-
+    console.log(data);
 
 }
 
@@ -136,4 +138,27 @@ print(data);
 }
 
 
+document.getElementById('filter').addEventListener("input",filterdata);
 
+
+function filterdata(){
+
+    let inp=document.getElementById("filter").value;
+
+   let newarr=[];
+
+   for(let i=0; i<data.length; i++)
+   {
+    if(data[i].name.includes(inp) || data[i].age.includes(inp) || data[i].prof.includes(inp))
+    {
+        newarr.push(data[i]);
+    }
+   }
+
+   print(newarr);
+
+
+   if(inp.length==0)
+   print(data);
+    
+}

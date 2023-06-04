@@ -50,3 +50,11 @@ tr,td,th{
     margin: 0 5px;
     cursor: pointer;
 }
+
+.filter{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
