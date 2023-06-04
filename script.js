@@ -12,7 +12,8 @@ document.getElementById("add").addEventListener("click",() =>{
     data.push(obj);
 
 
-    console.log(data);
+
+
     print(data);
     document.getElementById("sname").value="";
     document.getElementById("sage").value="";
@@ -49,12 +50,13 @@ function print(data) {
     col2.innerText=data[i].name;
     col3.innerText=data[i].age;
     col4.innerText=data[i].prof;
-    col5.innerHTML=` <span class="material-icons delete">
+    col5.innerHTML=` <span onclick="ddelete(${i})" class="material-icons delete ">
     delete
     </span> 
     <span class="material-icons edit">
     edit
     </span>`
+    
 
     row.appendChild(col1);
     row.appendChild(col2);
@@ -65,4 +67,17 @@ function print(data) {
 
     }
 
+
+
 }
+
+function ddelete(id){
+    console.log(id)
+
+    console.log("clicked");
+    data.splice(id,1);
+    print(data);
+}
+
+
+
