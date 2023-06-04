@@ -1,6 +1,39 @@
 
 var data=[];
+var boolean=true;
 document.getElementById("add").addEventListener("click",() =>{
+
+    document.getElementById("add").style.display="block";
+    document.getElementById("edit").style.display="none";
+ 
+
+    let name=document.getElementById("sname").value;
+    let age=document.getElementById("sage").value;
+    let prof=document.getElementById("profession").value;
+
+   
+    let obj={name:name, age:age, prof:prof};
+
+    data.push(obj);
+
+
+
+
+    print(data);
+    document.getElementById("sname").value="";
+    document.getElementById("sage").value="";
+    document.getElementById("profession").value="";
+
+       
+
+
+})
+
+document.getElementById("edit").addEventListener("click",() =>{
+
+    document.getElementById("add").style.display="block";
+    document.getElementById("edit").style.display="none";
+ 
 
     let name=document.getElementById("sname").value;
     let age=document.getElementById("sage").value;
@@ -26,6 +59,7 @@ document.getElementById("add").addEventListener("click",() =>{
 
 function print(data) {
 
+   
 
     let tbody=document.getElementById("tbody");
     tbody.innerHTML="";
@@ -53,7 +87,7 @@ function print(data) {
     col5.innerHTML=` <span onclick="ddelete(${i})" class="material-icons delete ">
     delete
     </span> 
-    <span class="material-icons edit">
+    <span onclick="edit(${i})" class="material-icons edit">
     edit
     </span>`
     
@@ -77,6 +111,28 @@ function ddelete(id){
     console.log("clicked");
     data.splice(id,1);
     print(data);
+}
+
+function edit(i){
+
+
+   document.getElementById("add").style.display="none";
+   document.getElementById("edit").style.display="block";
+
+
+let name=data[i].name;
+let age=data[i].age;
+let prof=data[i].prof;
+
+
+document.getElementById("sname").value=name;
+document.getElementById("sage").value=age;
+document.getElementById("profession").value=prof;
+
+data.splice(i,1);
+print(data);
+
+
 }
 
 
